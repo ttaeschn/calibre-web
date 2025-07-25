@@ -274,6 +274,13 @@ class OAuthProvider(Base):
     oauth_client_id = Column(String)
     oauth_client_secret = Column(String)
     active = Column(Boolean)
+    oauth_base_url = Column(String)
+    oauth_auth_url = Column(String, default="/protocol/openid-connect/auth")
+    oauth_token_url = Column(String, default="/protocol/openid-connect/token")
+    scope = Column(String, default="openid profile email")
+    username_mapper = Column(String, default="preferred_username")
+    email_mapper = Column(String, default="email")
+    login_button = Column(String)
 
 
 # Class for anonymous user is derived from User base and completely overrides methods and properties for the
